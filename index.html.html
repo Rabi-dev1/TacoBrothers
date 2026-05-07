@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Taco Brothers Bielefeld – No Bullshit Streetfood</title>
+  <meta name="description" content="Taco Brothers Bielefeld – Bielefelds heißester Streetfood-Spot. Crispy Tacos, XXL Burritos, Power Bowls – Herforder Str. 1-3. Jetzt bei Wolt bestellen!" />
+  <meta name="keywords" content="Taco Brothers, Bielefeld, Streetfood, Tacos, Burritos, Wolt, Herforder Straße" />
+  <meta name="author" content="Taco Brothers Bielefeld GbR" />
+  <link rel="canonical" href="https://taco-brothers-bielefeld.de" />
+  <meta property="og:type"        content="restaurant" />
+  <meta property="og:title"       content="Taco Brothers Bielefeld – No Bullshit Streetfood" />
+  <meta property="og:description" content="Bielefelds heißester Streetfood-Spot. Crispy Tacos, XXL Burritos – Herforder Str. 1-3. Jetzt online bestellen!" />
+  <meta property="og:image"       content="https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&w=1200&q=80" />
+  <meta property="og:url"         content="https://taco-brothers-bielefeld.de" />
+  <meta property="og:locale"      content="de_DE" />
+  <meta property="og:site_name"   content="Taco Brothers Bielefeld" />
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:title"       content="Taco Brothers Bielefeld" />
+  <meta name="twitter:description" content="No Bullshit Streetfood. Bielefelds Most Wanted Tacos." />
+  <meta name="twitter:image"       content="https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&w=1200&q=80" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700;900&family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --neon:      #ff006e;
+      --neon-glow: #ff006ecc;
+      --neon-dim:  #ff006e55;
+      --bg:        #0a0a0a;
+      --bg2:       #111111;
+      --bg3:       #1a1a1a;
+      --white:     #f5f5f5;
+      --gray:      #888;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--white); font-family: 'Montserrat', sans-serif; overflow-x: hidden; }
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--neon); border-radius: 3px; }
+
+    /* ─── HEADER ────────────────────────────────────────── */
+    #header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; display: flex; align-items: center; justify-content: space-between; padding: 18px 40px; background: transparent; transition: background 0.4s ease, backdrop-filter 0.4s ease, padding 0.3s ease; }
+    #header.scrolled { background: rgba(0,0,0,0.9); backdrop-filter: blur(12px); padding: 12px 40px; border-bottom: 1px solid var(--neon-dim); }
+    .burger-btn { background: none; border: none; cursor: pointer; display: flex; flex-direction: column; gap: 5px; padding: 6px; flex-shrink: 0; }
+    .burger-btn span { display: block; width: 26px; height: 2px; background: var(--white); transition: all 0.3s ease; }
+    .burger-btn.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .burger-btn.open span:nth-child(2) { opacity: 0; }
+    .burger-btn.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .logo-text { font-family: 'Oswald', sans-serif; font-size: 1.7rem; font-weight: 900; text-transform: uppercase; letter-spacing: 3px; color: var(--white); text-decoration: none; }
+    .logo-text span { color: var(--neon); text-shadow: 0 0 10px var(--neon), 0 0 30px var(--neon-glow); }
+    .header-actions { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+    .btn-wolt { background: transparent; color: var(--neon); border: 2px solid var(--neon); padding: 9px 18px; font-family: 'Oswald', sans-serif; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; cursor: pointer; text-decoration: none; clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%); transition: all 0.25s; white-space: nowrap; text-shadow: 0 0 8px var(--neon); animation: woltPulse 2.5s ease-in-out infinite; }
+    .btn-wolt:hover { background: var(--neon); color: #fff; box-shadow: 0 0 25px var(--neon), 0 0 50px var(--neon-glow); text-shadow: none; }
+    @keyframes woltPulse { 0%,100%{box-shadow:0 0 10px var(--neon-dim),inset 0 0 10px var(--neon-dim)}50%{box-shadow:0 0 22px var(--neon-glow),inset 0 0 16px var(--neon-dim)} }
+    .btn-order { background: var(--neon); color: #fff; border: none; padding: 10px 24px; font-family: 'Oswald', sans-serif; font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; cursor: pointer; clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%); transition: background 0.25s, box-shadow 0.25s; text-decoration: none; white-space: nowrap; }
+    .btn-order:hover { background: #fff; color: var(--neon); box-shadow: 0 0 20px var(--neon), 0 0 40px var(--neon-glow); }
+
+    /* ─── MOBILE NAV ────────────────────────────────────── */
+    .mobile-nav { position: fixed; top: 0; left: -100%; width: min(320px, 85vw); height: 100vh; background: var(--bg2); border-right: 2px solid var(--neon); z-index: 999; display: flex; flex-direction: column; justify-content: center; padding: 40px; gap: 32px; transition: left 0.4s cubic-bezier(0.77,0,0.175,1); }
+    .mobile-nav.open { left: 0; }
+    .mobile-nav a { font-family: 'Oswald', sans-serif; font-size: 2rem; font-weight: 700; text-transform: uppercase; letter-spacing: 3px; color: var(--white); text-decoration: none; transition: color 0.2s; }
+    .mobile-nav a:hover { color: var(--neon); text-shadow: 0 0 15px var(--neon); }
+    .mobile-nav .mobile-wolt { font-size: 1.1rem; color: var(--neon); border: 2px solid var(--neon); padding: 12px 20px; text-align: center; text-shadow: 0 0 8px var(--neon); letter-spacing: 2px; }
+    .nav-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 998; opacity: 0; pointer-events: none; transition: opacity 0.4s; }
+    .nav-overlay.open { opacity: 1; pointer-events: all; }
+
+    /* ─── HERO ──────────────────────────────────────────── */
+    #hero { position: relative; height: 100vh; min-height: 600px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; overflow: hidden; }
+    .hero-slides { position: absolute; inset: 0; z-index: 0; }
+    .hero-slide { position: absolute; inset: 0; background-size: cover; background-position: center; opacity: 0; transition: opacity 1.4s ease-in-out; }
+    .hero-slide.active { opacity: 1; }
+    .hero-overlay { position: absolute; inset: 0; z-index: 1; background: linear-gradient(to bottom, rgba(10,10,10,0.45) 0%, rgba(10,10,10,0.72) 50%, rgba(10,10,10,0.97) 100%); }
+    .hero-dots { position: absolute; bottom: 80px; left: 50%; transform: translateX(-50%); z-index: 3; display: flex; gap: 10px; }
+    .hero-dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.3); border: none; cursor: pointer; transition: all 0.3s; padding: 0; }
+    .hero-dot.active { background: var(--neon); box-shadow: 0 0 8px var(--neon); width: 24px; border-radius: 4px; }
+    .hero-content { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; gap: 20px; }
+    .hero-badge { font-family: 'Oswald', sans-serif; font-size: 0.85rem; letter-spacing: 6px; text-transform: uppercase; color: var(--neon); border: 1px solid var(--neon-dim); padding: 6px 18px; text-shadow: 0 0 10px var(--neon); }
+    .hero-title { font-family: 'Oswald', sans-serif; font-size: clamp(4rem, 12vw, 10rem); font-weight: 900; text-transform: uppercase; line-height: 0.9; color: var(--neon); text-shadow: 0 0 20px var(--neon), 0 0 60px var(--neon-glow), 0 0 100px var(--neon-dim); letter-spacing: -2px; }
+    .hero-tagline { font-family: 'Oswald', sans-serif; font-size: clamp(1rem, 3vw, 1.6rem); font-weight: 700; text-transform: uppercase; letter-spacing: 6px; color: var(--white); opacity: 0.9; }
+    .hero-subtitle { font-family: 'Montserrat', sans-serif; font-size: 0.9rem; font-weight: 400; text-transform: uppercase; letter-spacing: 5px; color: var(--gray); }
+    .hero-cta { margin-top: 12px; display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
+    .btn-hero-primary { background: var(--neon); color: #fff; padding: 14px 36px; font-family: 'Oswald', sans-serif; font-size: 1.1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 3px; text-decoration: none; clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%); transition: all 0.25s; }
+    .btn-hero-primary:hover { box-shadow: 0 0 30px var(--neon), 0 0 60px var(--neon-glow); transform: translateY(-2px); }
+    .btn-hero-secondary { background: transparent; color: var(--white); padding: 14px 36px; font-family: 'Oswald', sans-serif; font-size: 1.1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 3px; text-decoration: none; border: 2px solid var(--white); clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%); transition: all 0.25s; }
+    .btn-hero-secondary:hover { border-color: var(--neon); color: var(--neon); }
+    .hero-scroll { position: absolute; bottom: 36px; left: 50%; transform: translateX(-50%); z-index: 3; display: flex; flex-direction: column; align-items: center; gap: 8px; color: var(--gray); font-size: 0.7rem; letter-spacing: 3px; text-transform: uppercase; }
+    .hero-scroll::after { content: ''; display: block; width: 1px; height: 40px; background: linear-gradient(to bottom, var(--gray), transparent); animation: scrollLine 2s infinite; }
+    @keyframes scrollLine { 0%{opacity:1;transform:scaleY(1);transform-origin:top}50%{opacity:0.5}100%{opacity:0;transform:scaleY(0);transform-origin:bottom} }
+
+    /* ─── SECTIONS ──────────────────────────────────────── */
+    section { padding: 100px 40px; }
+    .section-label { font-family: 'Oswald', sans-serif; font-size: 0.8rem; letter-spacing: 6px; text-transform: uppercase; color: var(--neon); text-shadow: 0 0 10px var(--neon); margin-bottom: 12px; }
+    .section-title { font-family: 'Oswald', sans-serif; font-size: clamp(2.2rem, 6vw, 4.5rem); font-weight: 900; text-transform: uppercase; line-height: 1; letter-spacing: -1px; }
+    .section-title em { font-style: normal; color: var(--neon); text-shadow: 0 0 20px var(--neon); }
+    .neon-line { width: 100%; height: 1px; background: linear-gradient(to right, transparent, var(--neon), transparent); box-shadow: 0 0 8px var(--neon); }
+
+    /* ─── MENU ──────────────────────────────────────────── */
+    #menu-wrapper { background: var(--bg); }
+    #menu { background: var(--bg); max-width: 1400px; margin: 0 auto; }
+    .menu-header { text-align: center; margin-bottom: 70px; }
+    .menu-header .divider { width: 80px; height: 3px; background: var(--neon); margin: 20px auto 0; box-shadow: 0 0 10px var(--neon); }
+    .menu-tabs { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; margin-bottom: 60px; }
+    .menu-tab { font-family: 'Oswald', sans-serif; font-size: 0.9rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 10px 24px; background: transparent; color: var(--gray); border: 1px solid #333; cursor: pointer; transition: all 0.25s; }
+    .menu-tab:hover, .menu-tab.active { color: var(--neon); border-color: var(--neon); text-shadow: 0 0 10px var(--neon); box-shadow: inset 0 0 20px var(--neon-dim); }
+    .menu-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 30px; }
+
+    /* ─── 3D LAYER CARD ─────────────────────────────────── */
+    .menu-card { position: relative; background: var(--bg3); border: 1px solid #222; overflow: hidden; transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease; min-height: 360px; }
+    .menu-card:hover { transform: translateY(-8px); border-color: var(--neon-dim); box-shadow: 0 20px 50px rgba(255,0,110,0.2), 0 0 0 1px var(--neon-dim); }
+
+    /* Neon bg text — KLEINER & besser ins Bild eingepasst */
+    .card-bg-text {
+      position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
+      font-family: 'Oswald', sans-serif;
+      font-size: clamp(2.8rem, 6vw, 4.2rem);
+      font-weight: 900; text-transform: uppercase; color: transparent;
+      -webkit-text-stroke: 1.5px var(--neon);
+      text-shadow: 0 0 12px var(--neon), 0 0 30px var(--neon-glow);
+      white-space: nowrap; line-height: 1; z-index: 1;
+      pointer-events: none; opacity: 0.75; letter-spacing: 2px;
+    }
+
+    /* Image wrap — clickable */
+    .card-img-wrap { position: relative; z-index: 3; height: 210px; overflow: hidden; cursor: pointer; }
+    .card-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; display: block; }
+    .menu-card:hover .card-img-wrap img { transform: scale(1.06); }
+    .card-img-wrap::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 60px; background: linear-gradient(to bottom, transparent, var(--bg3)); z-index: 4; }
+
+    /* Zoom-hint overlay on hover */
+    .card-img-wrap::before {
+      content: '\1F50D';
+      position: absolute; inset: 0; z-index: 5;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2rem; background: rgba(0,0,0,0); color: transparent;
+      transition: background 0.3s, color 0.3s;
+    }
+    .card-img-wrap:hover::before { background: rgba(0,0,0,0.35); color: rgba(255,255,255,0.9); }
+
+    /* Price badge OVER the image (top-left) */
+    .card-price-badge {
+      position: absolute; top: 12px; left: 0; z-index: 6;
+      background: var(--neon); color: #fff;
+      font-family: 'Oswald', sans-serif; font-size: 1.35rem; font-weight: 900;
+      padding: 6px 16px 6px 12px;
+      clip-path: polygon(0 0, 100% 0, calc(100% - 8px) 100%, 0 100%);
+      text-shadow: 0 0 8px rgba(255,255,255,0.3);
+      box-shadow: 0 0 16px var(--neon-glow);
+    }
+
+    .card-info { position: relative; z-index: 3; padding: 16px 20px 22px; }
+    .card-tag { font-family: 'Oswald', sans-serif; font-size: 0.65rem; letter-spacing: 4px; text-transform: uppercase; color: var(--neon); margin-bottom: 6px; display: block; }
+    .card-name { font-family: 'Oswald', sans-serif; font-size: 1.3rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--white); margin-bottom: 6px; }
+    .card-desc { font-size: 0.82rem; color: var(--gray); line-height: 1.55; margin-bottom: 14px; }
+    .card-footer-row { display: flex; align-items: center; justify-content: flex-end; }
+    .card-add { background: none; border: 1px solid var(--neon); color: var(--neon); width: 34px; height: 34px; font-size: 1.3rem; cursor: pointer; transition: all 0.25s; display: flex; align-items: center; justify-content: center; clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%); }
+    .card-add:hover { background: var(--neon); color: #fff; box-shadow: 0 0 15px var(--neon); }
+    .card-badge { position: absolute; top: 12px; right: 12px; z-index: 7; background: var(--bg); color: var(--neon); border: 1px solid var(--neon); font-family: 'Oswald', sans-serif; font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 3px 9px; }
+
+    /* ─── LIGHTBOX ──────────────────────────────────────── */
+    .lb-overlay {
+      position: fixed; inset: 0; background: rgba(0,0,0,0.93); z-index: 3000;
+      display: flex; align-items: center; justify-content: center; padding: 20px;
+      opacity: 0; pointer-events: none; transition: opacity 0.3s;
+    }
+    .lb-overlay.open { opacity: 1; pointer-events: all; }
+
+    .lb-card {
+      background: var(--bg2); border: 1px solid var(--neon-dim);
+      box-shadow: 0 0 80px var(--neon-dim), 0 20px 60px rgba(0,0,0,0.8);
+      max-width: 540px; width: 100%; position: relative;
+      transform: scale(0.88); transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1);
+      max-height: 90vh; overflow-y: auto;
+    }
+    .lb-overlay.open .lb-card { transform: scale(1); }
+
+    .lb-img-wrap { position: relative; height: 280px; overflow: hidden; }
+    .lb-img-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    /* Big neon price over lightbox image */
+    .lb-price {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      background: linear-gradient(to top, rgba(10,10,10,0.95) 0%, transparent 100%);
+      padding: 28px 24px 16px;
+      display: flex; align-items: flex-end; justify-content: space-between;
+    }
+    .lb-price-num {
+      font-family: 'Oswald', sans-serif; font-size: 2.8rem; font-weight: 900;
+      color: var(--neon); text-shadow: 0 0 20px var(--neon), 0 0 40px var(--neon-glow);
+      line-height: 1;
+    }
+    .lb-category {
+      font-family: 'Oswald', sans-serif; font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 5px; text-transform: uppercase; color: rgba(255,255,255,0.5);
+    }
+
+    .lb-close {
+      position: absolute; top: 12px; right: 12px; z-index: 10;
+      background: rgba(0,0,0,0.6); border: 1px solid #333; color: var(--white);
+      width: 36px; height: 36px; border-radius: 50%; cursor: pointer;
+      font-size: 1.1rem; display: flex; align-items: center; justify-content: center;
+      transition: all 0.2s;
+    }
+    .lb-close:hover { border-color: var(--neon); color: var(--neon); }
+
+    .lb-body { padding: 24px 28px 28px; }
+    .lb-tag { font-family: 'Oswald', sans-serif; font-size: 0.7rem; letter-spacing: 5px; text-transform: uppercase; color: var(--neon); margin-bottom: 8px; display: block; }
+    .lb-name { font-family: 'Oswald', sans-serif; font-size: 2rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0; color: var(--white); margin-bottom: 14px; line-height: 1; }
+    .lb-desc { font-size: 0.92rem; color: rgba(245,245,245,0.75); line-height: 1.75; margin-bottom: 20px; }
+
+    .lb-allergens {
+      background: rgba(255,0,110,0.07); border-left: 3px solid var(--neon);
+      padding: 14px 16px; margin-bottom: 4px;
+    }
+    .lb-allergens-title { font-family: 'Oswald', sans-serif; font-size: 0.75rem; letter-spacing: 3px; text-transform: uppercase; color: var(--neon); margin-bottom: 6px; }
+    .lb-allergens p { font-size: 0.8rem; color: var(--gray); line-height: 1.6; }
+
+    .lb-wolt-btn {
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      width: 100%; margin-top: 20px; background: var(--neon); color: #fff;
+      padding: 14px; font-family: 'Oswald', sans-serif; font-size: 1rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 3px; text-decoration: none;
+      clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%);
+      transition: all 0.25s; border: none; cursor: pointer;
+    }
+    .lb-wolt-btn:hover { box-shadow: 0 0 30px var(--neon); transform: translateY(-2px); }
+
+    /* ─── ABOUT ─────────────────────────────────────────── */
+    #about { background: var(--bg2); border-top: 1px solid #1e1e1e; border-bottom: 1px solid #1e1e1e; }
+    .about-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .about-img-wrap { position: relative; }
+    .about-img-wrap img { width: 100%; aspect-ratio: 4/3; object-fit: cover; object-position: center top; display: block; }
+    .about-img-wrap::before { content: ''; position: absolute; inset: -8px; border: 2px solid var(--neon); box-shadow: 0 0 30px var(--neon-dim); z-index: -1; }
+    .about-text { display: flex; flex-direction: column; gap: 20px; }
+    .about-text p { font-size: 1rem; line-height: 1.8; color: rgba(245,245,245,0.75); }
+    .about-stats { display: flex; gap: 40px; margin-top: 4px; flex-wrap: wrap; }
+    .stat-item { display: flex; flex-direction: column; gap: 4px; }
+    .stat-number { font-family: 'Oswald', sans-serif; font-size: 2.5rem; font-weight: 900; color: var(--neon); text-shadow: 0 0 15px var(--neon); line-height: 1; }
+    .stat-label { font-size: 0.75rem; letter-spacing: 3px; text-transform: uppercase; color: var(--gray); }
+    .btn-gallery { display: inline-flex; align-items: center; gap: 10px; background: transparent; color: var(--white); border: 2px solid var(--white); padding: 14px 32px; font-family: 'Oswald', sans-serif; font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 3px; text-decoration: none; clip-path: polygon(10px 0%, 100% 0%, calc(100% - 10px) 100%, 0% 100%); transition: all 0.25s; margin-top: 8px; width: fit-content; }
+    .btn-gallery:hover { border-color: var(--neon); color: var(--neon); box-shadow: 0 0 20px var(--neon-dim); }
+
+    /* ─── REVIEWS ───────────────────────────────────────── */
+    #reviews { background: var(--bg); border-top: 1px solid #1a1a1a; }
+    .reviews-inner { max-width: 1200px; margin: 0 auto; }
+    .reviews-header { text-align: center; margin-bottom: 70px; }
+    .reviews-header .divider { width: 80px; height: 3px; background: var(--neon); margin: 20px auto 0; box-shadow: 0 0 10px var(--neon); }
+    .reviews-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 28px; }
+    .review-card { background: var(--bg3); border: 1px solid #222; padding: 32px 28px; position: relative; transition: border-color 0.3s, transform 0.3s; }
+    .review-card:hover { border-color: var(--neon-dim); transform: translateY(-4px); }
+    .review-card::before { content: '\201C'; position: absolute; top: 16px; right: 24px; font-family: 'Oswald', sans-serif; font-size: 5rem; font-weight: 900; color: var(--neon); opacity: 0.15; line-height: 1; }
+    .review-stars { display: flex; gap: 4px; margin-bottom: 18px; }
+    .review-stars span { color: var(--neon); font-size: 1.1rem; text-shadow: 0 0 8px var(--neon); }
+    .review-headline { font-family: 'Oswald', sans-serif; font-size: 1.15rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--white); margin-bottom: 12px; line-height: 1.2; }
+    .review-text { font-size: 0.88rem; color: var(--gray); line-height: 1.7; margin-bottom: 24px; }
+    .review-author { display: flex; align-items: center; gap: 14px; padding-top: 20px; border-top: 1px solid #2a2a2a; }
+    .review-avatar { width: 42px; height: 42px; border-radius: 50%; background: var(--neon); display: flex; align-items: center; justify-content: center; font-family: 'Oswald', sans-serif; font-size: 1rem; font-weight: 700; color: #fff; flex-shrink: 0; }
+    .review-name { font-family: 'Oswald', sans-serif; font-size: 0.95rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--white); }
+    .review-source { font-size: 0.75rem; color: var(--gray); letter-spacing: 1px; margin-top: 2px; }
+
+    /* ─── GOOGLE MAPS SECTION ───────────────────────────── */
+    #map-section { background: var(--bg2); border-top: 1px solid #1a1a1a; padding: 80px 40px; }
+    .map-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.4fr; gap: 60px; align-items: center; }
+    .map-text { display: flex; flex-direction: column; gap: 20px; }
+    .map-text p { font-size: 0.95rem; color: var(--gray); line-height: 1.7; }
+    .map-info-row { display: flex; align-items: flex-start; gap: 12px; font-size: 0.92rem; color: var(--gray); }
+    .map-info-row svg { flex-shrink: 0; margin-top: 3px; }
+    .map-info-row strong { color: var(--white); }
+    .map-frame-wrap {
+      border: 1px solid var(--neon-dim); box-shadow: 0 0 30px var(--neon-dim);
+      overflow: hidden; position: relative;
+    }
+    .map-frame-wrap::before {
+      content: ''; position: absolute; inset: 0; z-index: 1;
+      box-shadow: inset 0 0 30px rgba(255,0,110,0.1);
+      pointer-events: none;
+    }
+    .map-frame-wrap iframe { display: block; width: 100%; height: 340px; border: none; filter: invert(90%) hue-rotate(180deg) saturate(0.6); }
+    .btn-maps {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: transparent; color: var(--neon); border: 2px solid var(--neon);
+      padding: 12px 28px; font-family: 'Oswald', sans-serif; font-size: 0.9rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 2px; text-decoration: none;
+      clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+      transition: all 0.25s; width: fit-content; margin-top: 8px;
+    }
+    .btn-maps:hover { background: var(--neon); color: #fff; box-shadow: 0 0 20px var(--neon-dim); }
+
+    /* ─── FOOTER ────────────────────────────────────────── */
+    #footer { background: #050505; border-top: 1px solid #1a1a1a; padding: 70px 40px 40px; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 60px; margin-bottom: 60px; }
+    .footer-brand .logo-text { font-size: 1.5rem; display: inline-block; margin-bottom: 16px; }
+    .footer-brand p { font-size: 0.9rem; color: var(--gray); line-height: 1.7; max-width: 300px; }
+    .footer-brand .footer-legal { font-size: 0.78rem; color: #555; line-height: 1.6; margin-top: 16px; max-width: 300px; }
+    .footer-brand .footer-legal strong { color: #777; }
+    .footer-col h4 { font-family: 'Oswald', sans-serif; font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 3px; color: var(--neon); text-shadow: 0 0 8px var(--neon); margin-bottom: 20px; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col ul li { font-size: 0.9rem; color: var(--gray); display: flex; align-items: flex-start; gap: 10px; }
+    .footer-col ul li strong { color: var(--white); font-weight: 600; }
+    .footer-hours-row { display: flex; justify-content: space-between; font-size: 0.88rem; color: var(--gray); padding: 6px 0; border-bottom: 1px solid #1a1a1a; }
+    .footer-hours-row:last-child { border: none; }
+    .footer-hours-row strong { color: var(--white); }
+    .footer-bottom { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; padding-top: 30px; border-top: 1px solid #1a1a1a; }
+    .footer-bottom p { font-size: 0.8rem; color: #444; }
+    .footer-bottom span { color: var(--neon); }
+    .footer-socials { display: flex; gap: 12px; align-items: center; }
+    .social-link { width: 38px; height: 38px; border: 1px solid #2a2a2a; display: flex; align-items: center; justify-content: center; color: var(--gray); text-decoration: none; font-size: 1rem; transition: all 0.25s; clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%); }
+    .social-link:hover { border-color: var(--neon); color: var(--neon); box-shadow: 0 0 12px var(--neon-dim); }
+    .social-link svg { width: 18px; height: 18px; fill: currentColor; }
+
+    /* ─── TOAST ─────────────────────────────────────────── */
+    #toast { position: fixed; bottom: 32px; left: 50%; transform: translateX(-50%) translateY(100px); z-index: 9998; background: var(--bg2); border: 1px solid var(--neon); box-shadow: 0 0 24px var(--neon-dim), 0 8px 32px rgba(0,0,0,0.6); padding: 16px 28px; display: flex; align-items: center; gap: 14px; clip-path: polygon(12px 0%, 100% 0%, calc(100% - 12px) 100%, 0% 100%); transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1), opacity 0.4s; opacity: 0; pointer-events: none; white-space: nowrap; }
+    #toast.show { transform: translateX(-50%) translateY(0); opacity: 1; pointer-events: auto; }
+    .toast-icon { font-size: 1.4rem; flex-shrink: 0; }
+    .toast-text { font-family: 'Montserrat', sans-serif; font-size: 0.88rem; font-weight: 600; color: var(--white); }
+    .toast-text strong { color: var(--neon); text-shadow: 0 0 8px var(--neon); }
+    .toast-close { background: none; border: none; color: var(--gray); font-size: 1.1rem; cursor: pointer; padding: 0 0 0 8px; line-height: 1; transition: color 0.2s; flex-shrink: 0; }
+    .toast-close:hover { color: var(--neon); }
+
+    /* ─── RESPONSIVE ────────────────────────────────────── */
+    @media (max-width: 1024px) { .btn-wolt { display: none; } }
+    @media (max-width: 900px) {
+      section { padding: 70px 24px; }
+      #header { padding: 16px 24px; } #header.scrolled { padding: 12px 24px; }
+      .about-inner { grid-template-columns: 1fr; gap: 40px; } .about-img-wrap { order: -1; }
+      .footer-inner { grid-template-columns: 1fr 1fr; gap: 40px; } .footer-brand { grid-column: 1 / -1; }
+      .map-inner { grid-template-columns: 1fr; gap: 40px; }
+      #map-section { padding: 70px 24px; }
+    }
+    @media (max-width: 600px) {
+      .hero-title { letter-spacing: -3px; }
+      .menu-grid { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr; }
+      .menu-tabs { gap: 6px; } .menu-tab { padding: 8px 16px; font-size: 0.8rem; }
+      .reviews-grid { grid-template-columns: 1fr; }
+      .logo-text { font-size: 1.3rem; }
+      #toast { white-space: normal; width: calc(100vw - 48px); text-align: center; }
+      .lb-card { max-height: 95vh; }
+      .lb-img-wrap { height: 220px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ─── LIGHTBOX ─────────────────────────────────────── -->
+  <div class="lb-overlay" id="lbOverlay">
+    <div class="lb-card" id="lbCard">
+      <button class="lb-close" id="lbClose">&#10005;</button>
+      <div class="lb-img-wrap">
+        <img id="lbImg" src="" alt="" />
+        <div class="lb-price">
+          <div>
+            <div class="lb-category" id="lbCategory"></div>
+            <div class="lb-price-num" id="lbPrice"></div>
+          </div>
+        </div>
+      </div>
+      <div class="lb-body">
+        <span class="lb-tag" id="lbTag"></span>
+        <h2 class="lb-name" id="lbName"></h2>
+        <p class="lb-desc" id="lbDesc"></p>
+        <div class="lb-allergens">
+          <div class="lb-allergens-title">&#9888; Allergene &amp; Hinweise</div>
+          <p id="lbAllergens"></p>
+        </div>
+        <a id="lbWoltBtn" href="#" target="_blank" class="lb-wolt-btn">&#128667;&nbsp; Jetzt bei Wolt bestellen</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── TOAST ─────────────────────────────────────────── -->
+  <div id="toast">
+    <span class="toast-icon">&#128667;</span>
+    <span class="toast-text"><strong>Gute Wahl!</strong> Bestelle direkt &#252;ber unseren Wolt-Link oben.</span>
+    <button class="toast-close" id="toastClose">&#10005;</button>
+  </div>
+
+  <!-- ─── MOBILE NAV ───────────────────────────────────── -->
+  <div class="nav-overlay" id="navOverlay"></div>
+  <nav class="mobile-nav" id="mobileNav">
+    <a href="#hero"    class="nav-link">Home</a>
+    <a href="#menu"    class="nav-link">Speisekarte</a>
+    <a href="#about"   class="nav-link">&#220;ber uns</a>
+    <a href="#reviews" class="nav-link">Bewertungen</a>
+    <a href="#map-section" class="nav-link">Anfahrt</a>
+    <a href="#footer"  class="nav-link">Kontakt</a>
+    <a id="mobileWoltLink" href="#" target="_blank" class="mobile-wolt nav-link">&#128667; Jetzt bei Wolt</a>
+  </nav>
+
+  <!-- ─── HEADER ──────────────────────────────────────── -->
+  <header id="header">
+    <button class="burger-btn" id="burgerBtn" aria-label="Men&#252; &#246;ffnen">
+      <span></span><span></span><span></span>
+    </button>
+    <a href="#hero" class="logo-text" id="headerLogo">TACO <span>BROTHERS</span></a>
+    <div class="header-actions">
+      <a id="headerWoltLink" href="#" target="_blank" class="btn-wolt">&#128667;&nbsp; Jetzt bei Wolt bestellen</a>
+      <a id="headerPhoneLink" href="#" class="btn-order">Bestellen</a>
+    </div>
+  </header>
+
+  <!-- ─── HERO ────────────────────────────────────────── -->
+  <section id="hero">
+    <div class="hero-slides" id="heroSlides"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-badge" id="heroBadge"></div>
+      <h1 class="hero-title" id="heroTitle"></h1>
+      <p class="hero-tagline" id="heroTagline"></p>
+      <p class="hero-subtitle" id="heroSubtitle"></p>
+      <div class="hero-cta">
+        <a href="#menu" class="btn-hero-primary">Speisekarte</a>
+        <a id="heroWoltLink" href="#" target="_blank" class="btn-hero-secondary">&#128667; Wolt Delivery</a>
+      </div>
+    </div>
+    <div class="hero-dots" id="heroDots"></div>
+    <div class="hero-scroll">Scroll</div>
+  </section>
+
+  <div class="neon-line"></div>
+
+  <!-- ─── MENU ────────────────────────────────────────── -->
+  <div id="menu-wrapper">
+    <section id="menu">
+      <div class="menu-header">
+        <p class="section-label">&#9670; Die Karte &#9670;</p>
+        <h2 class="section-title">Unsere <em>Specials</em></h2>
+        <div class="divider"></div>
+      </div>
+      <div class="menu-tabs" id="menuTabs"></div>
+      <div class="menu-grid" id="menuGrid"></div>
+    </section>
+  </div>
+
+  <div class="neon-line"></div>
+
+  <!-- ─── ABOUT ───────────────────────────────────────── -->
+  <section id="about">
+    <div class="about-inner">
+      <div class="about-img-wrap">
+        <img
+          src="https://www.nw.de/_em_daten/_cache/image/1xZ2E3RkEwVk53b1NtenBvVGtRZDR5MlVraTlmRWZvNjMyRStUdm53dTZCTHJrNHQzOVdYYmRnZlR0T3hORlVZbFRNMVJZT3pSSDMyUG1yRmFUS090UmdPWVRJNFVJaWkrUVk0V2JxempRZEk9/241006-1414-501738470.jpg"
+          alt="Taco Brothers Bielefeld"
+          loading="lazy"
+        />
+      </div>
+      <div class="about-text">
+        <p class="section-label">&#9670; Unsere Story &#9670;</p>
+        <h2 class="section-title">Streetfood<br><em>aus Passion</em></h2>
+        <p id="aboutText1"></p>
+        <p id="aboutText2"></p>
+        <div class="about-stats" id="aboutStats"></div>
+        <a href="#" class="btn-gallery">&#9654;&nbsp; Zur Galerie</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="neon-line"></div>
+
+  <!-- ─── REVIEWS ─────────────────────────────────────── -->
+  <section id="reviews">
+    <div class="reviews-inner">
+      <div class="reviews-header">
+        <p class="section-label">&#9670; Street Credibility &#9670;</p>
+        <h2 class="section-title">Was unsere <em>Gang</em> sagt</h2>
+        <div class="divider"></div>
+      </div>
+      <div class="reviews-grid" id="reviewsGrid"></div>
+    </div>
+  </section>
+
+  <div class="neon-line"></div>
+
+  <!-- ─── GOOGLE MAPS ──────────────────────────────────── -->
+  <div id="map-section">
+    <div class="map-inner">
+      <div class="map-text">
+        <p class="section-label">&#9670; Anfahrt &#9670;</p>
+        <h2 class="section-title">Find <em>Us</em></h2>
+        <p>Mitten in Bielefeld, direkt an der Herforder Stra&#223;e. Komm vorbei &#8211; wir sind fast jeden Tag f&#252;r dich da.</p>
+        <div style="display:flex;flex-direction:column;gap:14px;margin-top:8px" id="mapInfoBlock"></div>
+        <a id="mapsLink" href="#" target="_blank" class="btn-maps">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          In Google Maps &#246;ffnen
+        </a>
+      </div>
+      <div class="map-frame-wrap">
+        <iframe
+          src="https://maps.google.com/maps?q=Herforder+Str.+1-3,+33602+Bielefeld,+Germany&hl=de&z=16&output=embed"
+          loading="lazy"
+          allowfullscreen
+          title="Taco Brothers Bielefeld – Google Maps"
+        ></iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── FOOTER ──────────────────────────────────────── -->
+  <footer id="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="#hero" class="logo-text">TACO <span>BROTHERS</span></a>
+        <p id="footerTagline"></p>
+        <div class="footer-legal" id="footerLegal"></div>
+      </div>
+      <div class="footer-col">
+        <h4>Kontakt</h4>
+        <ul id="footerContact"></ul>
+      </div>
+      <div class="footer-col">
+        <h4>&#214;ffnungszeiten</h4>
+        <div id="footerHours"></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p id="footerCopy"></p>
+      <div class="footer-socials">
+        <!-- Instagram -->
+        <a id="igLink" href="#" target="_blank" class="social-link" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        </a>
+        <a href="#" class="social-link" aria-label="TikTok">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.17 8.17 0 004.78 1.52V6.73a4.84 4.84 0 01-1.01-.04z"/></svg>
+        </a>
+        <a href="#" class="social-link" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  /* ═══════════════════════════════════════════════════
+     CONFIG — Nur dieses Objekt für neue Kunden tauschen
+  ═══════════════════════════════════════════════════ */
+  const CONFIG = {
+
+    restaurant: {
+      name:       'Taco Brothers',
+      namePart2:  'Bielefeld',
+      tagline:    'No Bullshit Streetfood.',
+      subtitleHero: 'Bielefelds Most Wanted Tacos\u00a0\u00b7\u00a0Herforder Str.',
+      badge:      '\u2605 Streetfood Spot Bielefeld \u2605',
+      aboutText1: 'Zwei Br\u00fcder, eine Mission: den besten Streetfood-Spot in Bielefeld zu bauen. Kein Schnickschnack, kein Kompromiss \u2013 nur ehrliche Geschmacksexplosionen, handgemacht, serviert mit Attitude.',
+      aboutText2: 'Unsere Rezepte reisen von Mexiko-Stadt bis Paris. Das Ergebnis: ein unverwechselbares Fusion-Konzept, das auf der Stra\u00dfe bleibt \u2013 laut, frisch, unfiltered. Direkt an der Herforder Stra\u00dfe in Bielefeld.',
+      footerTagline: 'Bielefelds hei\u00dfester Streetfood-Spot.\nEcht, frisch, kompromisslos \u2013 seit Tag eins.',
+      legalName:  'Taco Brothers Bielefeld GbR',
+      legalOwner: 'Vertretungsberechtigt: Aras Sheikmous',
+      vatNote:    'Umsatzsteuer-ID: wird nachgereicht',
+      copyrightYear: 2026,
+    },
+
+    contact: {
+      address:    'Herforder Str. 1-3\n33602 Bielefeld',
+      phone:      '0521 77099303',
+      phoneTel:   '+4952177099303',
+      email:      'info@taco-brothers-bielefeld.de',
+      wolt:       'https://wolt.com/de/deu/bielefeld/restaurant/taco-brothers-bielefeld',
+      instagram:  'https://www.instagram.com/tacobrothers_de?igsh=MW1kZ3IwdnE4bHBhYg==',
+      mapsLink:   'https://www.google.com/maps/search/Herforder+Str.+1-3,+33602+Bielefeld',
+    },
+
+    hours: [
+      { days: 'Mo \u2013 Do',  time: '11:00 \u2013 22:00' },
+      { days: 'Freitag',       time: '11:00 \u2013 00:00' },
+      { days: 'Samstag',       time: '11:00 \u2013 00:00' },
+      { days: 'Sonntag',       time: '11:00 \u2013 22:00' },
+    ],
+
+    stats: [
+      { number: '12+',  label: 'Signature Dishes'    },
+      { number: '100%', label: 'Fresh Daily'          },
+      { number: '#1',   label: 'Bielefeld Streetfood' },
+    ],
+
+    heroImages: [
+      'https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&w=1920&q=75',
+      'https://images.unsplash.com/photo-1551504734-5ee1c4a1479b?auto=format&fit=crop&w=1920&q=75',
+      'https://images.unsplash.com/photo-1504544750208-dc0358e63f7f?auto=format&fit=crop&w=1920&q=75',
+      'https://images.unsplash.com/photo-1548943487-a2e4e43b4853?auto=format&fit=crop&w=1920&q=75',
+    ],
+
+    menuCategories:      ['all', 'taco', 'burrito', 'bowl', 'extra'],
+    menuCategoryLabels:  { all: 'Alles', taco: 'Tacos', burrito: 'Burritos', bowl: 'Bowls', extra: 'Extras' },
+
+    menu: [
+      {
+        category: 'taco', badge: 'Hot', tag: 'Signature',
+        name:  'El Diablo Taco',
+        desc:  'Crispy Chicken, Jalape\u00f1os, Mango-Habanero Sauce, eingelegte rote Zwiebeln, frischer Koriander \u2013 scharf & s\u00fcchtig machend.',
+        price: '\u20ac8,90',
+        img:   'https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&w=700&q=75',
+        allergens: 'Enth\u00e4lt Gluten (Weizen), Milch, Eier. Kann Spuren von Sellerie, Senf und Sesam enthalten. Scharf \u2013 nicht empfohlen f\u00fcr Kinder oder Personen mit Magenproblemen.',
+      },
+      {
+        category: 'taco', tag: 'Beef',
+        name:  'La B\u00eate Taco',
+        desc:  'Pulled Beef 12h geschmort, rote Zwiebeln, Chipotle-Mayo, hausgemachte Guacamole, knackige Radieschen.',
+        price: '\u20ac9,50',
+        img:   'https://images.unsplash.com/photo-1551504734-5ee1c4a1479b?auto=format&fit=crop&w=700&q=75',
+        allergens: 'Enth\u00e4lt Gluten (Weizen), Eier (Mayo). Kann Spuren von Milch und Senf enthalten.',
+      },
+      {
+        category: 'taco', tag: 'Vegan',
+        name:  'Le Vegano Taco',
+        desc:  'Gebratene S\u00fc\u00dfkartoffeln, schwarze Bohnen, cremige Avocado, Pico de Gallo, Limettensaft & Koriander-\u00d6l.',
+        price: '\u20ac7,90',
+        img:   'https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?auto=format&fit=crop&w=700&q=75',
+        allergens: '100 % vegan. Enth\u00e4lt Gluten (Weizen). Kann Spuren von Sellerie enthalten. Geeignet f\u00fcr vegane & vegetarische Ern\u00e4hrung.',
+      },
+      {
+        category: 'burrito', badge: 'Bestseller', tag: 'XXL',
+        name:  'Le Grand Burrito',
+        desc:  'Pulled Pork, gereifter Cheddar, Mexireis, schwarze Bohnen, Schmand, Salsa verde & frischen Tomaten.',
+        price: '\u20ac11,90',
+        img:   'https://images.unsplash.com/photo-1626700051175-6818013e1d4f?auto=format&fit=crop&w=700&q=75',
+        allergens: 'Enth\u00e4lt Gluten (Weizen), Milch (Cheddar, Schmand). Kann Spuren von Senf und Sellerie enthalten.',
+      },
+      {
+        category: 'burrito', tag: 'Seafood',
+        name:  'Gangster Shrimp',
+        desc:  'Garnelen in Chipotle-Butter, Mango-Salsa, Koriander-Limetten-Reis, Avocado & leichte Sriracha-Creme.',
+        price: '\u20ac12,90',
+        img:   'https://images.unsplash.com/photo-1599974579688-8dbdd335c77f?auto=format&fit=crop&w=700&q=75',
+        allergens: 'Enth\u00e4lt Krebstiere (Garnelen), Gluten (Weizen), Milch (Butter). Kann Spuren von Fisch enthalten. Nicht geeignet bei Schalentier-Allergie.',
+      },
+      {
+        category: 'bowl', tag: 'Healthy',
+        name:  'Power Bowl',
+        desc:  'Quinoa-Basis, gegrilltes H\u00e4hnchen, Avocado, Jalape\u00f1os, Sriracha-Dressing, Rucola & buntes Saisongem\u00fcse.',
+        price: '\u20ac10,90',
+        img:   'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=700&q=75',
+        allergens: 'Glutenfrei. Kann Spuren von Senf, Sellerie und Sesam enthalten. Geeignet f\u00fcr glutenfreie Ern\u00e4hrung.',
+      },
+      {
+        category: 'extra', tag: 'Side',
+        name:  'Nachos Deluxe',
+        desc:  'Hausgemachte Tortilla-Chips, hei\u00dfer Cheddar-Dip, eingelegte Jalape\u00f1os, Guacamole & Pico de Gallo.',
+        price: '\u20ac6,90',
+        img:   'https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=700&q=75',
+        allergens: 'Enth\u00e4lt Mais (Chips), Milch (Cheddar-Dip). Kann Spuren von Gluten enthalten. Vegetarisch.',
+      },
+      {
+        category: 'extra', tag: 'Dessert',
+        name:  'Churros Neon',
+        desc:  'Frisch frittierte Churros, knuspriger Zimt-Zucker-Mantel, serviert mit dunkler Schokoladen-Dipping-Sauce.',
+        price: '\u20ac5,50',
+        img:   'https://images.unsplash.com/photo-1541599468348-e96984315921?auto=format&fit=crop&w=700&q=75',
+        allergens: 'Enth\u00e4lt Gluten (Weizen), Eier, Milch (Schokolade). Kann Spuren von N\u00fcssen enthalten. Vegetarisch.',
+      },
+    ],
+
+    reviews: [
+      { headline: 'Bester Taco in ganz Bielefeld.', text: '"Der El Diablo hat mein Leben ver\u00e4ndert. Scharf, knusprig, der Crunch \u2013 kein anderer Spot in der Stadt kommt auch nur ann\u00e4hernd ran. Ich gehe mindestens zweimal die Woche hin."', initials: 'JL', name: 'Jule L.', source: 'Google Maps \u00b7 Bielefeld' },
+      { headline: 'Authentischer Vibe, krasses Essen.', text: '"Ich dachte nicht, dass man in Bielefeld so guten Streetfood bekommt. Der Gangster Shrimp Burrito ist ein Kunstwerk. Die Atmosph\u00e4re, das Licht \u2013 f\u00fchlt sich an wie ein anderer Planet."', initials: 'KA', name: 'Kofi A.', source: 'Instagram \u00b7 @kofi.eats' },
+      { headline: 'Schnell, frisch, keine Kompromisse.', text: '"Le Grand Burrito ist XXL und trotzdem in jeder Sekunde durchdacht. Pulled Pork perfekt, Reis perfekt, alles passt. Wolt Delivery kommt bei mir sogar noch hei\u00df an \u2013 Respekt."', initials: 'MR', name: 'Max R.', source: 'Wolt \u00b7 Bielefeld' },
+      { headline: 'Das Design, das Essen \u2013 alles stimmt.', text: '"Schon der erste Blick macht Hunger. Neon-Lichter, schwarze W\u00e4nde, krasse Musik. Und dann der erste Bissen vom Vegano Taco \u2013 ich als Nicht-Veganer war komplett \u00fcberzeugt. Pflichtbesuch."', initials: 'SK', name: 'Sara K.', source: 'TripAdvisor \u00b7 Bielefeld' },
+    ],
+  };
+
+  /* ═══════════════════════════════════════════════════
+     RENDER FUNCTIONS
+  ═══════════════════════════════════════════════════ */
+
+  function renderHero() {
+    var R = CONFIG.restaurant, C = CONFIG.contact;
+    document.getElementById('heroBadge').textContent    = R.badge;
+    document.getElementById('heroTitle').innerHTML      = R.name + '<br>' + R.namePart2;
+    document.getElementById('heroTagline').textContent  = R.tagline;
+    document.getElementById('heroSubtitle').textContent = R.subtitleHero;
+
+    var slidesEl = document.getElementById('heroSlides');
+    var dotsEl   = document.getElementById('heroDots');
+    slidesEl.innerHTML = dotsEl.innerHTML = '';
+    CONFIG.heroImages.forEach(function (url, i) {
+      var s = document.createElement('div');
+      s.className = 'hero-slide' + (i === 0 ? ' active' : '');
+      s.style.backgroundImage = 'url(' + url + ')';
+      slidesEl.appendChild(s);
+      var d = document.createElement('button');
+      d.className = 'hero-dot' + (i === 0 ? ' active' : '');
+      d.setAttribute('data-index', i);
+      dotsEl.appendChild(d);
+    });
+
+    document.getElementById('heroWoltLink').href   = C.wolt;
+    document.getElementById('headerWoltLink').href = C.wolt;
+    document.getElementById('mobileWoltLink').href = C.wolt;
+    document.getElementById('headerPhoneLink').href = 'tel:' + C.phoneTel;
+    document.getElementById('igLink').href = C.instagram;
+  }
+
+  function renderAbout() {
+    var R = CONFIG.restaurant;
+    document.getElementById('aboutText1').textContent = R.aboutText1;
+    document.getElementById('aboutText2').textContent = R.aboutText2;
+    document.getElementById('aboutStats').innerHTML = CONFIG.stats.map(function (s) {
+      return '<div class="stat-item"><span class="stat-number">' + s.number + '</span><span class="stat-label">' + s.label + '</span></div>';
+    }).join('');
+  }
+
+  function renderMenu() {
+    var tabsEl = document.getElementById('menuTabs');
+    tabsEl.innerHTML = CONFIG.menuCategories.map(function (cat, i) {
+      return '<button class="menu-tab' + (i === 0 ? ' active' : '') + '" data-filter="' + cat + '">' + CONFIG.menuCategoryLabels[cat] + '</button>';
+    }).join('');
+
+    var gridEl = document.getElementById('menuGrid');
+    gridEl.innerHTML = CONFIG.menu.map(function (item, idx) {
+      var badge = item.badge ? '<div class="card-badge">' + item.badge + '</div>' : '';
+      return [
+        '<div class="menu-card" data-category="' + item.category + '" data-idx="' + idx + '">',
+        '  <span class="card-bg-text">' + item.category.toUpperCase() + '</span>',
+        '  ' + badge,
+        '  <div class="card-img-wrap" data-idx="' + idx + '">',
+        '    <div class="card-price-badge">' + item.price + '</div>',
+        '    <img src="' + item.img + '" alt="' + item.name + '" loading="lazy" />',
+        '  </div>',
+        '  <div class="card-info">',
+        '    <span class="card-tag">' + item.tag + '</span>',
+        '    <h3 class="card-name">' + item.name + '</h3>',
+        '    <p class="card-desc">' + item.desc + '</p>',
+        '    <div class="card-footer-row">',
+        '      <button class="card-add" data-idx="' + idx + '" aria-label="In den Warenkorb">+</button>',
+        '    </div>',
+        '  </div>',
+        '</div>',
+      ].join('\n');
+    }).join('');
+  }
+
+  function renderReviews() {
+    document.getElementById('reviewsGrid').innerHTML = CONFIG.reviews.map(function (r) {
+      return [
+        '<div class="review-card">',
+        '  <div class="review-stars"><span>\u2605</span><span>\u2605</span><span>\u2605</span><span>\u2605</span><span>\u2605</span></div>',
+        '  <h4 class="review-headline">' + r.headline + '</h4>',
+        '  <p class="review-text">' + r.text + '</p>',
+        '  <div class="review-author">',
+        '    <div class="review-avatar">' + r.initials + '</div>',
+        '    <div><div class="review-name">' + r.name + '</div><div class="review-source">' + r.source + '</div></div>',
+        '  </div>',
+        '</div>',
+      ].join('');
+    }).join('');
+  }
+
+  function renderMaps() {
+    var C = CONFIG.contact;
+    var pinSVG  = '<svg width="14" height="14" viewBox="0 0 24 24" fill="var(--neon)" style="flex-shrink:0;margin-top:3px"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>';
+    var telSVG  = '<svg width="14" height="14" viewBox="0 0 24 24" fill="var(--neon)" style="flex-shrink:0;margin-top:3px"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>';
+    document.getElementById('mapInfoBlock').innerHTML = [
+      '<div class="map-info-row">' + pinSVG + '<span><strong>' + C.address.replace('\n','</strong><br>') + '</span></div>',
+      '<div class="map-info-row">' + telSVG + '<span>' + C.phone + '</span></div>',
+    ].join('');
+    document.getElementById('mapsLink').href = C.mapsLink;
+  }
+
+  function renderFooter() {
+    var R = CONFIG.restaurant, C = CONFIG.contact;
+    document.getElementById('footerTagline').innerHTML = R.footerTagline.replace('\n', '<br>');
+    document.getElementById('footerLegal').innerHTML = '<strong>' + R.legalName + '</strong><br>' + R.legalOwner + '<br>' + C.address.replace('\n','<br>') + '<br>' + R.vatNote;
+
+    var pinSVG  = '<svg width="14" height="14" viewBox="0 0 24 24" fill="var(--neon)" style="flex-shrink:0;margin-top:2px"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>';
+    var telSVG  = '<svg width="14" height="14" viewBox="0 0 24 24" fill="var(--neon)" style="flex-shrink:0;margin-top:2px"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>';
+    var mailSVG = '<svg width="14" height="14" viewBox="0 0 24 24" fill="var(--neon)" style="flex-shrink:0;margin-top:2px"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>';
+    document.getElementById('footerContact').innerHTML = [
+      '<li>' + pinSVG + '<span>' + C.address.replace('\n','<br>') + '</span></li>',
+      '<li>' + telSVG + '<span>' + C.phone + '</span></li>',
+      '<li>' + mailSVG + '<span>' + C.email + '</span></li>',
+    ].join('');
+
+    document.getElementById('footerHours').innerHTML = CONFIG.hours.map(function (h) {
+      return '<div class="footer-hours-row"><strong>' + h.days + '</strong><span>' + h.time + '</span></div>';
+    }).join('');
+
+    document.getElementById('footerCopy').innerHTML = '\u00a9 ' + R.copyrightYear + ' <span>' + R.legalName + '</span>. Alle Rechte vorbehalten.';
+  }
+
+  /* ─── Boot renderers ────────────────────────────────── */
+  renderHero();
+  renderAbout();
+  renderMenu();
+  renderReviews();
+  renderMaps();
+  renderFooter();
+
+  /* ═══════════════════════════════════════════════════
+     INTERACTIONS
+  ═══════════════════════════════════════════════════ */
+  (function () {
+    'use strict';
+
+    /* ── Sticky Navbar ──────────────────────────────── */
+    var header = document.getElementById('header');
+    function onScroll() { header.classList.toggle('scrolled', window.scrollY > 50); revealOnScroll(); }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    /* ── Mobile Menu ────────────────────────────────── */
+    var burgerBtn  = document.getElementById('burgerBtn');
+    var mobileNav  = document.getElementById('mobileNav');
+    var navOverlay = document.getElementById('navOverlay');
+    function openNav()  { burgerBtn.classList.add('open'); mobileNav.classList.add('open'); navOverlay.classList.add('open'); document.body.style.overflow = 'hidden'; }
+    function closeNav() { burgerBtn.classList.remove('open'); mobileNav.classList.remove('open'); navOverlay.classList.remove('open'); document.body.style.overflow = ''; }
+    burgerBtn.addEventListener('click', function () { mobileNav.classList.contains('open') ? closeNav() : openNav(); });
+    navOverlay.addEventListener('click', closeNav);
+    document.querySelectorAll('.nav-link').forEach(function (l) { l.addEventListener('click', closeNav); });
+
+    /* ── Smooth Scroll ──────────────────────────────── */
+    document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+      a.addEventListener('click', function (e) {
+        var id = this.getAttribute('href');
+        if (id === '#') return;
+        var target = document.querySelector(id);
+        if (!target) return;
+        e.preventDefault();
+        window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - header.offsetHeight, behavior: 'smooth' });
+      });
+    });
+
+    /* ── Scroll-Reveal ──────────────────────────────── */
+    var revealCSS = document.createElement('style');
+    revealCSS.textContent = '.reveal{opacity:0;transform:translateY(50px);transition:opacity .65s cubic-bezier(.25,.46,.45,.94),transform .65s cubic-bezier(.25,.46,.45,.94)}.reveal.visible{opacity:1;transform:translateY(0)}.menu-grid .reveal:nth-child(2){transition-delay:.08s}.menu-grid .reveal:nth-child(3){transition-delay:.16s}.menu-grid .reveal:nth-child(4){transition-delay:.24s}.menu-grid .reveal:nth-child(5){transition-delay:.32s}.menu-grid .reveal:nth-child(6){transition-delay:.4s}.menu-grid .reveal:nth-child(7){transition-delay:.48s}.menu-grid .reveal:nth-child(8){transition-delay:.56s}.reviews-grid .reveal:nth-child(2){transition-delay:.1s}.reviews-grid .reveal:nth-child(3){transition-delay:.2s}.reviews-grid .reveal:nth-child(4){transition-delay:.3s}';
+    document.head.appendChild(revealCSS);
+    ['.menu-card','.about-img-wrap','.about-text','.menu-header','.reviews-header','.review-card','.footer-col','.footer-brand','.map-text','.map-frame-wrap'].forEach(function (sel) {
+      document.querySelectorAll(sel).forEach(function (el) { el.classList.add('reveal'); });
+    });
+    function revealOnScroll() {
+      var h = window.innerHeight;
+      document.querySelectorAll('.reveal:not(.visible)').forEach(function (el) {
+        if (el.getBoundingClientRect().top < h - 80) el.classList.add('visible');
+      });
+    }
+    window.addEventListener('load', revealOnScroll);
+    revealOnScroll();
+
+    /* ── Menu Tab Filter ────────────────────────────── */
+    document.getElementById('menuTabs').addEventListener('click', function (e) {
+      var tab = e.target.closest('.menu-tab');
+      if (!tab) return;
+      document.querySelectorAll('.menu-tab').forEach(function (t) { t.classList.remove('active'); });
+      tab.classList.add('active');
+      var filter = tab.getAttribute('data-filter');
+      document.querySelectorAll('.menu-card').forEach(function (card) {
+        var show = filter === 'all' || card.getAttribute('data-category') === filter;
+        card.style.display = show ? '' : 'none';
+        if (show) { card.classList.remove('visible'); setTimeout(function () { card.classList.add('visible'); }, 30); }
+      });
+    });
+
+    /* ── Hero Carousel ──────────────────────────────── */
+    var slides = document.querySelectorAll('.hero-slide');
+    var dots   = document.querySelectorAll('.hero-dot');
+    var cur = 0, timer;
+    function goTo(i) { slides[cur].classList.remove('active'); dots[cur].classList.remove('active'); cur = i; slides[cur].classList.add('active'); dots[cur].classList.add('active'); }
+    function startTimer() { timer = setInterval(function () { goTo((cur + 1) % slides.length); }, 6000); }
+    document.getElementById('heroDots').addEventListener('click', function (e) {
+      var dot = e.target.closest('.hero-dot');
+      if (!dot) return;
+      clearInterval(timer); goTo(parseInt(dot.getAttribute('data-index'))); startTimer();
+    });
+    startTimer();
+
+    /* ── Lightbox ───────────────────────────────────── */
+    var lbOverlay = document.getElementById('lbOverlay');
+    var lbClose   = document.getElementById('lbClose');
+
+    function openLightbox(idx) {
+      var item = CONFIG.menu[idx];
+      if (!item) return;
+      document.getElementById('lbImg').src          = item.img.replace('w=700', 'w=900');
+      document.getElementById('lbImg').alt          = item.name;
+      document.getElementById('lbPrice').textContent    = item.price;
+      document.getElementById('lbCategory').textContent = item.category.toUpperCase();
+      document.getElementById('lbTag').textContent  = item.tag;
+      document.getElementById('lbName').textContent = item.name;
+      document.getElementById('lbDesc').textContent = item.desc;
+      document.getElementById('lbAllergens').textContent = item.allergens;
+      document.getElementById('lbWoltBtn').href     = CONFIG.contact.wolt;
+      lbOverlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() { lbOverlay.classList.remove('open'); document.body.style.overflow = ''; }
+
+    lbClose.addEventListener('click', closeLightbox);
+    lbOverlay.addEventListener('click', function (e) { if (e.target === lbOverlay) closeLightbox(); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeLightbox(); });
+
+    /* Click on image wrap opens lightbox */
+    document.getElementById('menuGrid').addEventListener('click', function (e) {
+      var wrap = e.target.closest('.card-img-wrap');
+      if (wrap) { openLightbox(parseInt(wrap.getAttribute('data-idx'))); return; }
+    });
+
+    /* ── Toast ──────────────────────────────────────── */
+    var toast = document.getElementById('toast');
+    var toastClose = document.getElementById('toastClose');
+    var toastTimer;
+    function showToast() { clearTimeout(toastTimer); toast.classList.add('show'); toastTimer = setTimeout(function () { toast.classList.remove('show'); }, 4000); }
+    toastClose.addEventListener('click', function () { clearTimeout(toastTimer); toast.classList.remove('show'); });
+    document.getElementById('menuGrid').addEventListener('click', function (e) {
+      if (e.target.classList.contains('card-add')) showToast();
+    });
+
+    /* ── Cursor Glow (Desktop) ──────────────────────── */
+    if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+      var glow = document.createElement('div');
+      glow.style.cssText = 'position:fixed;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(255,0,110,0.06) 0%,transparent 70%);pointer-events:none;z-index:9997;transform:translate(-50%,-50%);transition:left .15s ease,top .15s ease';
+      document.body.appendChild(glow);
+      document.addEventListener('mousemove', function (e) { glow.style.left = e.clientX + 'px'; glow.style.top = e.clientY + 'px'; });
+    }
+
+  })();
+  </script>
+</body>
+</html>
